@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row">
+    <div class="carousel-holder">
+      <div  id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators" >
+          <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+          <li *ngFor="let category of productCategories; let i = index " data-target="#carousel-example-generic" data-slide-to="i"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+          <div class="item active">
+            <img class="slide-image" src="https://az760333.vo.msecnd.net/-/media/property/lansdowne-resort/resort/lansdowne_interior_hospitality_suite_parlor3-crpd1150x500.jpg?ts=a699b0e0-40d0-48b7-84cf-b3e8e8aaa270" alt="">
+            <div class="carousel-caption">
+              <h4>Explore all furnitures</h4>
+            </div>
+          </div>
+          <div class="item" *ngFor="let category of productCategories">
+            <img class="slide-image" [src]="category.images.ImgURL" alt="category_image">
+            <div class="carousel-caption">
+              <h4>{{category.category_description}}</h4>
+            </div>
+          </div>
+        </div>
+        <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
+    </div>
+    <!--<div class="new">-->
+  </div><br>
+  <h3 class="text-center">Popular Products <small><a href="./views/product/product-list.html" >--view all</a></small></h3>
+  <div class="row">
+    <div class="col-md-4" *ngFor="let product of products" >
+      <div class="thumbnail">
+        <div class="img-thumb">
+          <img [src]="product.images[0].ThumbURL250" class="img-inside img-responsive">
+        </div>
+        <div class="caption">
+          <h4 class="text-center"><a href="/product_details/{{product.id}}">{{product.product_name}}</a></h4>
+          <h4 class="text-center">{{product.product_cost | currency:'INR':true:'1.0-0'}}</h4>
+          <star-rating-comp [starType]="'svg'"
+                           [rating]="product.product_avg_rating"
+                           [size]="'medium'"
+                           [staticColor]="'negative'"  
+                           [showHalfStars]="true"
+                           [disabled]="true">
+          </star-rating-comp>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

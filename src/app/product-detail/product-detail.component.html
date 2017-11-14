@@ -54,13 +54,7 @@
               <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <div class="text-warning text-center">
-                      <i class="fa fa-lg fa-star"></i>
-                      <i class="fa fa-lg fa-star"></i>
-                      <i class="fa fa-lg fa-star"></i>
-                      <i class="fa fa-lg fa-star-o"></i>
-                      <i class="fa fa-lg fa-star-o"></i>
-                    </div>
+                    <star-rating-comp [starType]="'svg'" [rating]="product_detail.product_avg_rating"></star-rating-comp>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">CLOSE</button>

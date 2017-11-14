@@ -30,15 +30,15 @@
     </div>
     <!--<div class="new">-->
   </div><br>
-  <h3 class="text-center">Popular Products <small><a href="./views/product/product-list.html" >--view all</a></small></h3>
+  <h3 class="text-center">Popular Products <small><a href="/products">--view all</a></small></h3>
   <div class="row">
     <div class="col-md-4" *ngFor="let product of products" >
       <div class="thumbnail">
-        <div class="img-thumb">
-          <img [src]="product.images[0].ThumbURL250" class="img-inside img-responsive">
+        <div class="img-thumb"><a href="/product/{{product.id}}">
+          <img [src]="product.images[0].ThumbURL250" class="img-inside img-responsive"></a>
         </div>
         <div class="caption">
-          <h4 class="text-center"><a href="/product_details/{{product.id}}">{{product.product_name}}</a></h4>
+          <h4 class="text-center"><a href="/product/{{product.id}}">{{product.product_name}}</a></h4>
           <h4 class="text-center">{{product.product_cost | currency:'INR':true:'1.0-0'}}</h4>
           <star-rating-comp [starType]="'svg'"
                            [rating]="product.product_avg_rating"

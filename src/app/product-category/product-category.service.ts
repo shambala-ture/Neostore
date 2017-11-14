@@ -13,7 +13,7 @@ export class ProductCategoryService {
   category_url:string="http://180.149.245.182:3008/api/categories"
 
 	getPopularCategories(): Observable<ProductCategory>{
-    return this.http.get(this.category_url + '?filter={"order": "product_avg_rating  DESC","include":"images" ,"limit":"6", "skip":"0"}').map((response: Response) => {
+    return this.http.get(this.category_url + '?filter={"include":"images" ,"skip":"0"}').map((response: Response) => {
       return <ProductCategory>response.json()
     }).catch(this.handleError)
   }

@@ -15,11 +15,14 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { HomeService } from './home/home.service';
 import { ProductCategoryService } from './product-category/product-category.service';
 import { ProductDetailService } from './product-detail/product-detail.service';
+import { ProductService } from './product/product.service';
+import { ColorService } from './product/color.service';
 
 import { StarRatingModule } from 'angular-star-rating';
 
 const routes: Routes = [
-  { path: 'product_details/:id', component: ProductDetailComponent },
+  { path: 'product/:id', component: ProductDetailComponent },
+  { path: 'products', component: ProductComponent },
   { path: '', component: HomeComponent }
 ];
 
@@ -42,7 +45,7 @@ const routes: Routes = [
     {enableTracing:false}
     )
   ],
-  providers: [HomeService,ProductCategoryService,ProductDetailService],
+  providers: [HomeService,ProductCategoryService,ProductDetailService,ProductService,ColorService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

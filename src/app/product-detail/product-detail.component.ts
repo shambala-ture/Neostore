@@ -26,7 +26,6 @@ export class ProductDetailComponent implements OnInit {
         this.product_detail = response;
         this.productDetailImgArray= response.images;
         this.procuctActiveImage = this.productDetailImgArray[0].ImgURL;
-        this.rating= this.product_detail.product_avg_rating;
         console.log(response);
         return response
       },
